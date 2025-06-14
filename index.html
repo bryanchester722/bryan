@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Restoran A Mee</title>
+<link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+<style>
+    body {
+        margin: 0;
+        font-family: Arial, sans-serif;
+        background: linear-gradient(135deg, #fff0e6, #ffe5cc);
+        color: #333;
+    }
+    header {
+        text-align: center;
+        padding: 2rem;
+        background: #ffdab9;
+    }
+    header h1 {
+        font-size: 4rem;
+        font-family: 'Pacifico', cursive;
+    }
+    header p {
+        font-size: 2rem;
+        color: #aa4a30;
+    }
+    nav {
+        display: flex;
+        justify-content: center;
+        gap: 2rem;
+        background: #f7c6a3;
+        padding: 1rem;
+    }
+    nav a {
+        color: #333;
+        text-decoration: none;
+        font-weight: bold;
+    }
+    .carousel-container {
+        overflow: hidden;
+        position: relative;
+        max-width: 100%;
+        margin: 1rem auto;
+    }
+    .carousel-track {
+        display: flex;
+        transition: transform 0.5s ease;
+    }
+    .carousel-track img {
+        width: 350px;
+        height: 250px;
+        object-fit: cover;
+        margin-right: 10px;
+        border-radius: 10px;
+    }
+    .carousel-buttons {
+        text-align: center;
+        margin-top: 0.5rem;
+    }
+    .menu {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 1rem;
+        padding: 2rem;
+    }
+    .menu-item {
+        background: #fffaf2;
+        padding: 1rem;
+        border-radius: 10px;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        text-align: center;
+    }
+    .menu-item img {
+        width: 100%;
+        border-radius: 10px;
+    }
+    .menu-item h3 {
+        margin: 0.5rem 0 0;
+        font-size: 1.2rem;
+    }
+    .cart, #page2 {
+        padding: 2rem;
+    }
+    footer {
+        text-align: center;
+        padding: 1rem;
+        background: #f7c6a3;
+    }
+</style>
+</head>
+<body>
+<audio autoplay loop>
+    <source src="https://cdn.pixabay.com/download/audio/2023/03/23/audio_cff0400e6d.mp3?filename=the-kitchen-142291.mp3" type="audio/mpeg">
+</audio>
+<header>
+    <h1>Restoran A Mee</h1>
+    <p>Mee Tauhu Bae - Sedap & Puas Hati!</p>
+</header>
+
+<nav>
+    <a href="#menu">Menu</a>
+    <a href="#order">Order</a>
+    <a href="#page2">Reviews</a>
+</nav>
+
+<div class="carousel-container">
+    <div class="carousel-track" id="carousel-track">
+        <img src="https://imgur.com/sXGvlNd.jpg" alt="Mee Goreng Tauhu">
+        <img src="https://imgur.com/58iWRHO.jpg" alt="Nasi Ayam Penyet">
+        <img src="https://imgur.com/z72pxO8.jpg" alt="Ayam Crispy">
+        <img src="https://imgur.com/71RQIUi.jpg" alt="Air Tin">
+        <img src="https://imgur.com/4WRTNx9.jpg" alt="Nasi Goreng Ayam">
+        <img src="https://imgur.com/I83Wyhg.jpg" alt="Nasi Goreng Telur">
+    </div>
+    <div class="carousel-buttons">
+        <button onclick="prevSlide()">Prev</button>
+        <button onclick="nextSlide()">Next</button>
+    </div>
+</div>
+
+<section class="menu" id="menu">
+    <div class="menu-item">
+        <img src="https://imgur.com/sXGvlNd.jpg" alt="Mee Goreng Tauhu">
+        <h3>Mee Goreng Tauhu - RM9.00</h3>
+    </div>
+    <div class="menu-item">
+        <img src="https://imgur.com/58iWRHO.jpg" alt="Nasi Ayam Penyet">
+        <h3>Nasi Ayam Penyet - RM12.00</h3>
+    </div>
+    <div class="menu-item">
+        <img src="https://imgur.com/z72pxO8.jpg" alt="Ayam Crispy">
+        <h3>Ayam Crispy - RM8.00</h3>
+    </div>
+    <div class="menu-item">
+        <img src="https://imgur.com/4WRTNx9.jpg" alt="Nasi Goreng Ayam">
+        <h3>Nasi Goreng Ayam - RM15.00</h3>
+    </div>
+    <div class="menu-item">
+        <img src="https://imgur.com/I83Wyhg.jpg" alt="Nasi Goreng Telur">
+        <h3>Nasi Goreng Telur - RM9.50</h3>
+    </div>
+    <div class="menu-item">
+        <img src="https://imgur.com/71RQIUi.jpg" alt="Air Tin">
+        <h3>Air Tin - RM2.50</h3>
+    </div>
+</section>
+
+<section class="cart" id="order">
+    <h2>Order Form</h2>
+    <form action="https://formsubmit.co/amee@gmail.com" method="POST">
+        <label>Nama:</label>
+        <input type="text" name="name" required><br><br>
+
+        <label>No. Telefon:</label>
+        <input type="tel" name="phone" required pattern="[0-9]{10,12}" placeholder="Contoh: 0123456789"><br><br>
+
+        <label>Pesanan:</label>
+        <textarea name="order" rows="4" placeholder="Contoh: Mee Goreng Tauhu x1, Air Tin x2" required></textarea><br><br>
+
+        <label>Jumlah (RM):</label>
+        <input type="text" name="total" required><br><br>
+
+        <button type="submit">Hantar Pesanan</button>
+    </form>
+</section>
+
+<section id="page2">
+    <h2>Suasana Restoran & Ulasan</h2>
+    <div class="menu">
+        <img src="https://imgur.com/I83Wyhg.jpg" alt="Suasana 1" class="menu-item">
+        <img src="https://imgur.com/4WRTNx9.jpg" alt="Suasana 2" class="menu-item">
+    </div>
+    <h3>Ulasan Pelanggan</h3>
+    <p>⭐⭐⭐⭐⭐ "Sedap sangat!"</p>
+    <p>⭐⭐⭐⭐ "Servis cepat dan mesra."</p>
+    <p>⭐⭐⭐⭐⭐ "Mee Tauhu terbaik Lahad Datu!"</p>
+    <p>⭐⭐⭐ "Boleh tambah lagi variety air."</p>
+    <p>⭐⭐⭐⭐⭐ "Nasi Goreng Ayam sangat puas hati."</p>
+    <p>⭐⭐⭐⭐ "Tempat bersih dan selesa."</p>
+
+    <h3>Beri Ulasan Anda:</h3>
+    <form action="https://formsubmit.co/amee@gmail.com" method="POST">
+        <label>Nama:</label>
+        <input type="text" name="name" required><br><br>
+
+        <label>Ulasan:</label>
+        <textarea name="review" rows="3" required></textarea><br><br>
+
+        <button type="submit">Hantar Ulasan</button>
+    </form>
+</section>
+
+<footer>
+    <p>&copy; 2025 Restoran A Mee | Designed by Brian</p>
+    <div class="opening-hours">
+        <p><strong>Opening Hours:</strong></p>
+        <p>Monday - Friday: 7:00 am - 4:00 pm</p>
+        <p>Saturday - Sunday: 10:00 am - 4:00 pm</p>
+    </div>
+    <div class="location">
+        <p><strong>Location:</strong> MDLD 237, Lorong 2 Sri Perdana, Sri Perdana, Lahad Datu, Sabah.</p>
+    </div>
+</footer>
+
+<script>
+const track = document.getElementById('carousel-track');
+const slides = [...track.children];
+let index = 0;
+
+function showSlide() {
+    track.style.transform = `translateX(-${index * 360}px)`;
+}
+
+function nextSlide() {
+    index = (index + 1) % slides.length;
+    showSlide();
+}
+
+function prevSlide() {
+    index = (index - 1 + slides.length) % slides.length;
+    showSlide();
+}
+
+setInterval(nextSlide, 4000);
+</script>
+</body>
+</html>
