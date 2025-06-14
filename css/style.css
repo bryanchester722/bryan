@@ -1,0 +1,55 @@
+/* Reset & Base Styles */
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Segoe UI', sans-serif; color: #333; background: #fff; }
+a { color: #8B0000; text-decoration: none; }
+ul { list-style: none; }
+img { max-width: 100%; height: auto; display: block; }
+h1, h2, h3, h4 { margin-bottom: 0.5rem; }
+
+/* Header Styles */
+.header { background: #8B0000; padding: 1rem 0; color: #fff; }
+#logo a { color: #fff; font-size: 2rem; font-weight: bold; }
+
+nav#navigation ul { display: flex; justify-content: center; gap: 1rem; margin-top: 1rem; }
+nav#navigation ul li a { color: #fff; padding: 0.5rem 1rem; border-radius: 4px; }
+nav#navigation ul li a:hover { background: rgba(255,255,255,0.1); }
+
+.header-right { display: flex; justify-content: flex-end; gap: 0.5rem; margin-top: 0.5rem; }
+.socials a { color: #fff; font-size: 0.9rem; }
+
+.testimonials-slider { background: #7a0000; padding: 0.5rem; margin-top: 1rem; border-radius: 6px; }
+.testimonials-slider h4 { color: #fff; margin-bottom: 0.5rem; }
+.rating a { display: inline-block; width: 12px; height: 12px; background: gold; border-radius: 50%; margin-right: 2px; }
+
+.slider-holder { margin-top: 1rem; }
+.big-slider .slides li { display: flex; align-items: center; gap: 1rem; }
+.slide-cnt h2 { color: #8B0000; font-size: 1.8rem; }
+.slide-cnt p { margin-top: 0.5rem; font-size: 1rem; }
+
+.cols { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1rem; margin: 2rem 0; }
+.col { background: #f8f8f8; padding: 1rem; border-radius: 6px; }
+.col h3 { color: #8B0000; margin-bottom: 0.5rem; }
+.col .cnt { font-size: 0.9rem; }
+
+.red-btn, .dot, button { background: #8B0000; color: #fff; padding: 0.5rem 1rem; border-radius: 4px; display: inline-block; text-align: center; }
+.red-btn:hover, .dot:hover, button:hover { background: #a10000; }
+
+.content { margin-bottom: 2rem; }
+.content h3 { color: #8B0000; margin-bottom: 1rem; }
+.entry { background: #f4f4f4; padding: 1rem; border-radius: 6px; margin-bottom: 1rem; }
+.entry h4 { margin-bottom: 0.25rem; }
+
+.sidebar { margin-top: 2rem; }
+.facebook-social img { width: 100%; border-radius: 6px; }
+
+#footer { background: #333; color: #ccc; padding: 1rem 0; text-align: center; }
+.footer-nav ul { display: flex; flex-wrap: wrap; justify-content: center; gap: 0.5rem; margin-bottom: 0.5rem; }
+.footer-nav ul li a { color: #ccc; }
+.footer-nav ul li a:hover { text-decoration: underline; }
+.copy { font-size: 0.85rem; color: #999; }
+
+@media (max-width: 768px) {
+  nav#navigation ul { flex-wrap: wrap; justify-content: center; gap: 0.5rem; }
+  .big-slider .slides li { flex-direction: column; text-align: center; }
+  .slide-cnt h2 { font-size: 1.5rem; }
+}
